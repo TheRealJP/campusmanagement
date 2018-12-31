@@ -5,23 +5,23 @@
   <a (click)="logout()">Logout</a>
 </nav>
 
-<nav id="floorNavigation">
-  <app-floor *ngFor="let floor of floors">
-    <a routerLink="/floor/{{floor.floorLevel}}">
-      Verdieping {{floor.floorLevel}}
-    </a>
-  </app-floor>
-</nav>
+<!--<nav id="floorNavigation">-->
+  <!--<app-floor *ngFor="let floor of floors">-->
+    <!--<a routerLink="/floor/{{floor.floorLevel}}">-->
+      <!--Verdieping {{floor.floorLevel}}-->
+    <!--</a>-->
+  <!--</app-floor>-->
+<!--</nav>-->
 
-<verdieping>
-  <plattegroond>
-    <app-room>
-      <app-infobar>
+<!--<verdieping>-->
+  <!--<plattegroond>-->
+    <!--<app-room>-->
+      <!--<app-infobar>-->
 
-      </app-infobar>
-    </app-room>
-  </plattegroond>
-</verdieping>
+      <!--</app-infobar>-->
+    <!--</app-room>-->
+  <!--</plattegroond>-->
+<!--</verdieping>-->
 
 
 <nav *ngIf="!currentUser">

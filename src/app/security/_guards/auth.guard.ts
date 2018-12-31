@@ -3,6 +3,7 @@ import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot} from '@angular
 import {Observable} from 'rxjs';
 import {Router} from 'express';
 import {AuthenticationService} from '../_services/authentication.service';
+import {Role} from '../_models/role';
 
 @Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {
@@ -11,11 +12,19 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate(
-    next: ActivatedRouteSnapshot,
+    route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    const currentUser = this.authService.cur
+    const currentUser = this.authService.currentUserValue;
 
+    if (currentUser) {
+      if (route.data.roles && Role.Personeel !== currentUser[0].role) {
+        this.router.navigate(['/']);
+        return false;
+      }
+      return true;
+    }
 
+    this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
     return true;
   }
 }

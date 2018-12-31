@@ -5,6 +5,9 @@ export class Room {
   type: Type;
   bezet: boolean;
   capaciteit?: [number, string];
-  beamer?: string;
-  drukte?: number;
+  beamer: boolean;
+  drukte: number;
+
+  hoogte: number;
+  breedte: number;
 }
